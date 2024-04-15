@@ -1,11 +1,28 @@
+import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom"
+import ProductsList from "./components/productsList"
+import ProductDetail from "./components/productDetail"
+import Navbar from "./components/Navbar"
 
-
+// const router = createBrowserRouter([
+//   {
+//     path: "/",
+//     element: <ProductsList ></ProductsList>
+//   },
+//   {
+//     path: "/products/:id",
+//     element: <ProductDetail />
+//   }
+// ])
 
 const App = () => {
   return (
-    <div>
-        <h1>App</h1>
-    </div>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/products" element={<ProductsList />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+      </Routes>
+    </>
   )
 }
 export default App
