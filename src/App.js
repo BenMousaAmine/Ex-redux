@@ -1,4 +1,4 @@
-import "./App.css";
+import "./index.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Postpage from "./pages/post/Postpage";
 import Homepage from "./pages/home/Homepage";
@@ -6,7 +6,9 @@ import Recipepage from "./pages/recipe/Recipepage";
 import PostDetail from "./pages/post/detail/PostDetail";
 import GenericError from "./pages/error/GenericError";
 import RecipeDetail from "./pages/recipe/detail/RecipeDetail";
-import Navbar from "./components/Navbar";
+import TodoPage from "./pages/todos/Todopage";
+import TodoDetail from "./pages/todos/detail/TodoDetail";
+import Navbar from "./components/Navbar"; 
 
 export const router = createBrowserRouter([
   {
@@ -32,6 +34,14 @@ export const router = createBrowserRouter([
   {
     path: "/recipes/:id",
     element: RecipeDetail(),
+  },
+  {
+    path: "/todo",
+    element: TodoPage(),
+  },
+  {
+    path: "/todo/:id",
+    element: TodoDetail(),
   },
 ]);
 
