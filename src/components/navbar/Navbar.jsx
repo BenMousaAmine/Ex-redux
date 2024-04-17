@@ -1,4 +1,5 @@
-import { router } from "../App";
+import { router } from "../../App";
+import "./navbar.css";
 
 const Navbar = () => {
   return (

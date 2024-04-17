@@ -1,0 +1,23 @@
+.navbar {
+  background-color: #333;
+  height: 10dvh;
+  display: flex;
+  gap: 1rem;
+  display: flex;
+  align-items: center;
+  padding-inline: 1rem;
+
+  button {
+    border: none;
+    background-color: transparent;
+    color: white;
+    width: min(min-content, 20vw);
+    height: min(50px, 10dvh);
+    font-size: 2rem;
+    border-radius: 10px;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+}

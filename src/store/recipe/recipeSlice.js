@@ -1,7 +1,8 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
+import axios from "axios";
 import { nanoid } from "nanoid";
 
-export const initialState = {
+const initialState = {
   data: [],
   loading: true,
   error: null,
@@ -10,11 +11,10 @@ export const initialState = {
 export const fetchAllRecipes = createAsyncThunk(
   "recipes/fetchAllRecipes",
   async (limit) => {
-    const response = await fetch(
+    const response = await axios(
       `https://dummyjson.com/recipes?limit=${limit}`
     );
-    const data = await response.json();
-    return data;
+    return response.data.recipes;
   }
 );
 
@@ -56,9 +56,8 @@ const recipeSlice = createSlice({
   },
 });
 
-export const getRecipes = (state) => state.recipes.data;
-export const getRecipeById = (state, id) =>
-  state.recipes.data.find((recipe) => recipe.id === id);
+export const getRecipes = (state) => state.recipes;
+export const getRecipeById = (state, id) => state.recipes.data.find((r) => r.id === id);
 
 export const { addRecipe, deleteRecipe } = recipeSlice.actions;
 

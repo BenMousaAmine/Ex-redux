@@ -1,4 +1,3 @@
-import "./App.css";
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import Postpage from "./pages/post/Postpage";
 import Homepage from "./pages/home/Homepage";
@@ -6,32 +5,32 @@ import Recipepage from "./pages/recipe/Recipepage";
 import PostDetail from "./pages/post/detail/PostDetail";
 import GenericError from "./pages/error/GenericError";
 import RecipeDetail from "./pages/recipe/detail/RecipeDetail";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 
 export const router = createBrowserRouter([
   {
+    path: "/",
+    element: <Homepage />,
+  },
+  {
     path: "/posts",
-    element: Postpage(),
+    element: <Postpage />,
   },
   {
     path: "/posts/:id",
-    element: PostDetail(),
-  },
-  {
-    path: "/",
-    element: Homepage(),
+    element: <PostDetail />,
   },
   {
     path: "*",
-    element: GenericError(),
+    element: <GenericError />,
   },
   {
     path: "/recipes",
-    element: Recipepage(),
+    element: <Recipepage />,
   },
   {
     path: "/recipes/:id",
-    element: RecipeDetail(),
+    element: <RecipeDetail />,
   },
 ]);
 
