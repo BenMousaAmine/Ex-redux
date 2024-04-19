@@ -38,12 +38,10 @@ const productsSlice = createSlice({
 
 
 export const getAllProducts = (s) => {
-  console.log(s.products.error)
   return s.products;
 };
 
 export const findProductById = (s, id) => {
-  console.log(s.products.data)
   return s.products.data.find((p) => p.id === id);
 };
 

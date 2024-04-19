@@ -1,7 +1,8 @@
-import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom"
+import { Route, Routes } from "react-router-dom"
 import ProductsList from "./components/productsList"
 import ProductDetail from "./components/productDetail"
 import Navbar from "./components/navbar"
+import Cart from "./components/cart"
 
 // const router = createBrowserRouter([
 //   {
@@ -21,6 +22,7 @@ const App = () => {
       <Routes>
         <Route path="/products" element={<ProductsList />} />
         <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/cart/" element={<Cart />} />
       </Routes>
     </>
   )

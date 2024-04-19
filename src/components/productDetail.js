@@ -1,9 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import {addCart} from "../store/slice/cartSlice"
 
 const ProductDetail = () => {
   const { id } = useParams();
   const [product, setProduct] = useState([])
+  const dispatch = useDispatch()
 
   
 
@@ -15,7 +18,13 @@ const ProductDetail = () => {
       setProduct(data)
     }
     fetchData()
-}, [])
+  }, [])
+  
+  const handleCart = (e) => {
+    e.preventDefault();
+
+    dispatch(addCart(product))
+  }
 
   return (<>
     <h1>{product?.title}</h1>
@@ -24,6 +33,7 @@ const ProductDetail = () => {
     <p>{product?.description}</p>
 
     <p>{product?.price}</p>
+    <button onClick={handleCart}>Add to cart</button>
   </>)
 }
 

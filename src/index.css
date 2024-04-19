@@ -3,23 +3,23 @@
   width: 5vmin;
   border-radius: 50%;
   display: flex;
-  background-color: red;
-  animation: spin 1s infinite linear;
+  background-color: #990011;
+  animation: spin 2s infinite;
 }
 
 .loader::after {
-  content: '';  
+  content: "";
   box-sizing: border-box;
   position: absolute;
   left: 50%;
   top: 50%;
   border: 2.5vmin solid;
-  border-color: transparent blue;
+  border-color: palevioletred;
   border-radius: 50%;
-  transform: translate(-50%, -50%);
+  /* transform: translate(-50%, -50%); */
 }
 
-@keyframes spin{
+@keyframes spin {
   0% {
     transform: rotate(0deg);
   }
@@ -28,20 +28,6 @@
   }
 }
 
-/* .loader-inner {
-  border-radius: 70% 0% 0% 70%;
-  height: 100%;
-  width: 100%;
-  background-color: blue;
-}
-
-.loader-inner2 {
-  border-radius: 0% 50% 50% 0%;
-  height: 100%;
-  width: 100%;
-  background-color: orange;
-} */
-
 .loader-container {
   position: absolute;
   margin-left: auto;
@@ -49,5 +35,78 @@
   top: 50%;
   left: 50%;
   text-align: center;
+}
+
+body {
+  background-color: #FCF6F5;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100dvh;
+  width: 100dvw;
+}
+
+.navigation {
+  background-color: #990011;
+}
+
+.navigation button {
+  border-style: none;
+  background-color: #990011;
+  color: whitesmoke;
+  font-size: 95%;
+  font-weight: 400px;
+  margin: 0;
+  padding: 22px 36px;
+}
+
+.navigation button:hover {
+  background-color: #a52934;
+}
+
+.navigation .rightli {
+  background-color: palevioletred;
+  float: right;
+}
+
+.listCards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin: 20px;
+}
+
+.card {
+  width: 24%;
+  margin-bottom: 20px;
+  background-color: rgba(70, 49, 49, 0.3);
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+.card img{
+  max-width: 100%;
+  height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.div select{
+  appearance: none;
+  background-color: transparent;
+  border: none;
+  padding: 0 1em 0 0;
+  margin: 0;
+  width: 100%;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  &::-ms-expand {
+    display: none;
+  }
+  outline: none;
 }
 
