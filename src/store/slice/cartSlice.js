@@ -1,11 +1,11 @@
-import { createSlice } from "@reduxjs/toolkit";
+import {createSlice} from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
     name: "cart",
     initialState: { data: [], loading: false, error: null },
     reducers: {
-        addPostToCart: (state, action) => {
-            const payload = action.payload;
+        addPostToCart: (state, {payload}) => {
+
             const existingItemIndex = state.data.findIndex(item => item.id === payload.id);
             if (existingItemIndex !== -1) {
                 state.data[existingItemIndex].quantity += 1;
@@ -14,16 +14,14 @@ const cartSlice = createSlice({
             }
             localStorage.setItem("cart", JSON.stringify(state.data));
         },
-        deleteFromCart: (state, action) => {
-            const postId = action.payload;
-            state.data = state.data.filter(item => item.id !== postId);
+        deleteFromCart: (state, {payload}) => {
+            state.data = state.data.filter(item => item.id !== payload);
             localStorage.setItem("cart", JSON.stringify(state.data));
         },
         loadCart: (state) => {
             state.loading = true;
             try {
-                const cartData = JSON.parse(localStorage.getItem("cart")) || [];
-                state.data = cartData;
+                state.data = JSON.parse(localStorage.getItem("cart")) || [];
                 state.loading = false;
             } catch (error) {
                 state.error = error.message;
