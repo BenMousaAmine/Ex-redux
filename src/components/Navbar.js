@@ -18,7 +18,7 @@ const Navbar = () => {
           <button>Brian</button>
         </Link>
         <Link to={"/cart/"}>
-          <button className="rightli">Carrello ({cart.data.length})</button>
+          <button className="rightli">Carrello ({cart.total})</button>
         </Link>
       </div>
     </>

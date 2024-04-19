@@ -1,22 +1,22 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 
 const cartSlice = createSlice({
   name: "cart",
-  initialState: { data: [] },
+  initialState: { data: [], total: 0 },
   reducers: {
     addCart: {
       reducer: (state, { payload }) => {
         const existingItem = state.data.find((item) => item.id === payload.id);
         state.data = existingItem
           ? [
-              ...state.data.filter((item) => item.id !== payload.id),
-              {
-                ...existingItem,
-                quantity: existingItem.quantity + 1,
-                id: nanoid()
-              },
-            ]
+            ...state.data.filter((item) => item.id !== payload.id),
+            {
+              ...existingItem,
+              quantity: existingItem.quantity + 1,
+            },
+          ]
           : [...state.data, payload];
+          state.total += 1;
         localStorage.setItem("cart", JSON.stringify(state.data));
       },
       prepare: (product) => ({
