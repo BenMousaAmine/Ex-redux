@@ -57,8 +57,8 @@ const recipeSlice = createSlice({
 });
 
 export const getRecipes = (state) => state.recipes;
-export const getRecipeById = (state, id) => state.recipes.data.find((r) => r.id === id);
-
+export const getRecipeById = (state, id) =>
+  state.recipes.data.find((r) => r.id === id);
 export const { addRecipe, deleteRecipe } = recipeSlice.actions;
 
 export default recipeSlice.reducer;

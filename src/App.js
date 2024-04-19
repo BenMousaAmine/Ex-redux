@@ -6,6 +6,7 @@ import PostDetail from "./pages/post/detail/PostDetail";
 import GenericError from "./pages/error/GenericError";
 import RecipeDetail from "./pages/recipe/detail/RecipeDetail";
 import Navbar from "./components/navbar/Navbar";
+import Cartpage from "./pages/cart/Cartpage";
 
 export const router = createBrowserRouter([
   {
@@ -31,6 +32,10 @@ export const router = createBrowserRouter([
   {
     path: "/recipes/:id",
     element: <RecipeDetail />,
+  },
+  {
+    path: "/cart",
+    element: <Cartpage />,
   },
 ]);
 
