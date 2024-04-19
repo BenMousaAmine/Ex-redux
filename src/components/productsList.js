@@ -2,13 +2,13 @@ import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux"
 import { Link } from "react-router-dom";
 import { getAllProducts, fetchAllProducts } from "../store/slice/productsSlice"
+import Loading from "./loading";
 
 const ProductsList = () => {
   const dispatch = useDispatch();
   const [limit, setLimit] = useState(10);
 
   const products = useSelector(getAllProducts)
-  const [toggle, setToggle] = useState(false)
 
   useEffect(() => {
     dispatch(fetchAllProducts(limit));
@@ -34,7 +34,7 @@ const ProductsList = () => {
         <option value={90}> 90 </option>
         <option value={100}> 100 </option>
       </select>
-      <div> {products.loading ? <h3>Is loading</h3> :
+      <div> {products.loading ? <Loading/> :
         products.error ? <h3>Suca</h3> :
           <div>
             {

@@ -1,7 +1,7 @@
 import { createBrowserRouter, Route, RouterProvider, Routes } from "react-router-dom"
 import ProductsList from "./components/productsList"
 import ProductDetail from "./components/productDetail"
-import Navbar from "./components/Navbar"
+import Navbar from "./components/navbar"
 
 // const router = createBrowserRouter([
 //   {

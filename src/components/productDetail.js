@@ -1,6 +1,4 @@
-import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-import { findProductById } from "../store/slice/productsSlice";
 import { useEffect, useState } from "react";
 
 const ProductDetail = () => {
@@ -19,10 +17,13 @@ const ProductDetail = () => {
     fetchData()
 }, [])
 
-  console.log(product)
-
   return (<>
     <h1>{product?.title}</h1>
+    <img src={product?.thumbnail} alt="" />
+
+    <p>{product?.description}</p>
+
+    <p>{product?.price}</p>
   </>)
 }
 
