@@ -7,6 +7,7 @@ import "./style/cart.css";
 const Cartpage = () => {
   const dispatch = useDispatch();
   const cart = useSelector(getCart);
+  console.log(cart);
 
   useEffect(() => {
     dispatch(loadCart());
@@ -17,7 +18,12 @@ const Cartpage = () => {
       <h1>Cart</h1>
       <div className="list">
         {cart.map((item, index) => (
-          <CartItem key={index} item={item} className={"cart__item"} />
+          <CartItem
+            key={index}
+            item={item}
+            className={"cart__item"}
+            quantity={item.quantity}
+          />
         ))}
       </div>
     </div>
