@@ -20,7 +20,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   align-items: center;
-  width: 100%;
+  width: 99%;
   height: clamp(100px, 10%, 200px);
   padding: 1rem;
   border-radius: 1rem;
